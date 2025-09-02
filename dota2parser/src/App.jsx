@@ -43,7 +43,7 @@ function App() {
     'smokes_used': 283,
     'roshan_kills': 850,
     'teamfight_participation': 1895,
-    'stuns': 128,
+    'stuns': 15,
     'tormentor_kills': 850,
     'courier_kills': 850,
     'firstblood': 1700
@@ -356,12 +356,12 @@ function App() {
                   return (
                     <span key={leagueId}>
                       <a
-                        href={league.link}
+//                         href={league.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="underline text-blue-500"
                       >
-                        {league.name}
+{/*                         {league.name} */}
                       </a><br/>
                     </span>
                   );

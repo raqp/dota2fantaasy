@@ -85,6 +85,9 @@ PLAYERS_LIST = {
     'rue': {
         'pos': 2
     },
+    'Larl': {
+        'pos': 1
+    },
 # Team Falcons
     'skiter': {
         'pos': 0
@@ -255,7 +258,7 @@ try:
 except FileNotFoundError:
     player_stat = {}
 
-LEAGUES_ID = [18433, 18375, 18107, 18359, 18358]
+LEAGUES_ID = [18433, 18375, ]
 
 leagues_ids = list(map(int, leagues_data.keys()))
 
