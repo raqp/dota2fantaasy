@@ -258,7 +258,7 @@ try:
 except FileNotFoundError:
     player_stat = {}
 
-LEAGUES_ID = [18433, 18375, ]
+LEAGUES_ID = [18324]
 
 leagues_ids = list(map(int, leagues_data.keys()))
 
@@ -322,19 +322,19 @@ for league_id in leagues_ids:
                         player_stat[player['name']]['stats']['red']['creep_score'].append(player['last_hits'] + player['denies'])
                         player_stat[player['name']]['stats']['red']['gpm'].append(player['gold_per_min'])
                         player_stat[player['name']]['stats']['red']['madstone_collected'].append(player.get('item_uses', {}).get('madstone_bundle', 0))
-                        player_stat[player['name']]['stats']['red']['tower_kills'].append(player['towers_killed'])
+                        player_stat[player['name']]['stats']['red']['tower_kills'].append(player.get('towers_killed', 0))
                     if PLAYERS_LIST[player['name']]['pos'] in (1, 2) and 'blue' in player_stat[player['name']]['stats']:
-                        player_stat[player['name']]['stats']['blue']['obs_placed'].append(player['obs_placed'])
-                        player_stat[player['name']]['stats']['blue']['camps_stacked'].append(player['camps_stacked'])
-                        player_stat[player['name']]['stats']['blue']['runes_grabbed'].append(player['rune_pickups'])
+                        player_stat[player['name']]['stats']['blue']['obs_placed'].append(player.get('obs_placed', 0))
+                        player_stat[player['name']]['stats']['blue']['camps_stacked'].append(player.get('camps_stacked', 0))
+                        player_stat[player['name']]['stats']['blue']['runes_grabbed'].append(player.get('rune_pickups', 0))
                         player_stat[player['name']]['stats']['blue']['watchers_taken'].append(player.get('ability_uses', {}).get('ability_lamp_use', 0))
                         player_stat[player['name']]['stats']['blue']['smokes_used'].append(player.get('item_uses', {}).get('smoke_of_deceit', 0))
                     if PLAYERS_LIST[player['name']]['pos'] in (0, 1, 2) and 'green' in player_stat[player['name']]['stats']:
-                        player_stat[player['name']]['stats']['green']['roshan_kills'].append(player['roshans_killed'])
-                        player_stat[player['name']]['stats']['green']['teamfight_participation'].append(player['teamfight_participation'])
-                        player_stat[player['name']]['stats']['green']['stuns'].append(player['stuns'])
-                        player_stat[player['name']]['stats']['green']['courier_kills'].append(player['courier_kills'])
-                        player_stat[player['name']]['stats']['green']['firstblood'].append(player['firstblood_claimed'])
+                        player_stat[player['name']]['stats']['green']['roshan_kills'].append(player.get('roshans_killed', 0))
+                        player_stat[player['name']]['stats']['green']['teamfight_participation'].append(player.get('teamfight_participation', 0))
+                        player_stat[player['name']]['stats']['green']['stuns'].append(player.get('stuns', 0))
+                        player_stat[player['name']]['stats']['green']['courier_kills'].append(player.get('courier_kills', 0))
+                        player_stat[player['name']]['stats']['green']['firstblood'].append(player.get('firstblood_claimed', 0))
                         player_stat[player['name']]['stats']['green']['tormentor_kills'].append(player.get('killed', {}).get('npc_dota_miniboss', 0))
                 
                 if 'heroes' not in player_stat[player['name']]:
